@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol HGFolder {
+public protocol HGFolder {
     var name: String { get }
     var present: HGFolder { get }
     var path: String { get }
     var availablePath: String? { get }
 }
 
-extension HGFolder {
+public extension HGFolder {
     var path: String {
         let path = present.path.stringByAppendingPathComponent(name)
         if !FileManager.default.fileExists(atPath: path) {
@@ -37,24 +37,24 @@ extension HGFolder {
     }
 }
 
-enum HGRootFolder: HGFolder {
+public enum HGRootFolder: HGFolder {
     case root
     case general(directory: FileManager.SearchPathDirectory)
     case shared(groupID: String)
     
-    var name: String {
+    public var name: String {
         return path.lastPathComponent
     }
     
-    var present: HGFolder {
+    public var present: HGFolder {
         return HGRootFolder.root
     }
     
-    var path: String {
+    public var path: String {
         return availablePath ?? "/"
     }
     
-    var availablePath: String? {
+    public var availablePath: String? {
         let rootPath: String?
         switch self {
         case let .general(directory: directory):
@@ -68,7 +68,7 @@ enum HGRootFolder: HGFolder {
     }
 }
 
-extension HGRootFolder {
+public extension HGRootFolder {
     static var document: HGFolder {
         return HGRootFolder.general(directory: .documentDirectory)
     }
@@ -77,14 +77,14 @@ extension HGRootFolder {
     }
 }
 
-extension HGFolder where Self: RawRepresentable, Self.RawValue == String {
+public extension HGFolder where Self: RawRepresentable, Self.RawValue == String {
     var name: String {
         return rawValue
     }
 }
 
 public class HGFolderManager {
-    class func folderSize(path: String) -> UInt64 {
+    public class func folderSize(path: String) -> UInt64 {
         guard let filenames = try? FileManager.default.contentsOfDirectory(atPath: path) else {
             return 0
         }
@@ -101,5 +101,15 @@ public class HGFolderManager {
             }
         }
         return sumSize
+    }
+    
+    public class func cleanCache(path: String) {
+        guard let url = URL(string: path) else { return }
+        let fm = FileManager.default
+        do {
+            try fm.removeItem(at: url)
+        } catch {
+            print("清除缓存失败")
+        }
     }
 }
