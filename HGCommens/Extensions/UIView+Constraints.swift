@@ -11,7 +11,7 @@ import UIKit
 public extension UIView {
 
     // MARK: Height & Width
-    @discardableResult public func constraintHeight(_ height: CGFloat) -> NSLayoutConstraint {
+    @discardableResult func constraintHeight(_ height: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let heightConstraint = NSLayoutConstraint(
             item: self,
@@ -26,7 +26,7 @@ public extension UIView {
         return heightConstraint
     }
 
-    @discardableResult public func constraintHeight(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func constraintHeight(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let heightConstraint = NSLayoutConstraint(
             item: self,
@@ -41,7 +41,7 @@ public extension UIView {
         return heightConstraint
     }
 
-    @discardableResult public func constraintWidth(_ width: CGFloat) -> NSLayoutConstraint {
+    @discardableResult func constraintWidth(_ width: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let widthConstraint = NSLayoutConstraint(
             item: self,
@@ -56,7 +56,7 @@ public extension UIView {
         return widthConstraint
     }
 
-    @discardableResult public func constraintWidth(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func constraintWidth(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let widthConstraint = NSLayoutConstraint(
             item: self,
@@ -78,7 +78,7 @@ public extension UIView {
     /// - Parameters:
     ///   - item: 与之四周对齐的 View
     ///   - inset: 距离 item 的四边内间距。正值为往内缩，负值为往外扩。
-    public func align(with item: Any, inset: UIEdgeInsets = .zero) {
+    func align(with item: Any, inset: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         alignTop(with: item, constant: inset.top)
         alignLeft(with: item, constant: inset.left)
@@ -88,7 +88,7 @@ public extension UIView {
 
     // MARK: Align Top
 
-    @discardableResult public func alignTop(with item: Any, constant: CGFloat = 0, multiplier: CGFloat = 1) -> NSLayoutConstraint {
+    @discardableResult func alignTop(with item: Any, constant: CGFloat = 0, multiplier: CGFloat = 1) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let topConstraint = NSLayoutConstraint(
             item: self,
@@ -103,7 +103,7 @@ public extension UIView {
         return topConstraint
     }
 
-    @discardableResult public func alignTopWithCenterY(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignTopWithCenterY(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let topToCenterYConstraint = NSLayoutConstraint(
             item: self,
@@ -117,7 +117,7 @@ public extension UIView {
         return topToCenterYConstraint
     }
 
-    @discardableResult public func alignTopWithBottom(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignTopWithBottom(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let topToBottomConstraint = NSLayoutConstraint(
             item: self,
@@ -134,7 +134,7 @@ public extension UIView {
 
     // MARK: Align Bottom
 
-    @discardableResult public func alignBottom(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignBottom(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let bottomConstraint = NSLayoutConstraint(
             item: self,
@@ -149,7 +149,7 @@ public extension UIView {
         return bottomConstraint
     }
 
-    @discardableResult public func alignBottomWithTop(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignBottomWithTop(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let bottomToTopConstraint = NSLayoutConstraint(
             item: self,
@@ -166,7 +166,7 @@ public extension UIView {
 
     // MARK: Align Right
 
-    @discardableResult public func alignRight(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignRight(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let rightConstraint = NSLayoutConstraint(
             item: self,
@@ -181,7 +181,7 @@ public extension UIView {
         return rightConstraint
     }
 
-    @discardableResult public func alignRightWithCenterX(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignRightWithCenterX(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let rightToCenterConstraint = NSLayoutConstraint(
             item: self,
@@ -196,7 +196,7 @@ public extension UIView {
         return rightToCenterConstraint
     }
 
-    @discardableResult public func alignRightWithLeft(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignRightWithLeft(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let rightToLeftConstraint = NSLayoutConstraint(
             item: self,
@@ -213,7 +213,7 @@ public extension UIView {
 
     // MARK: Align Left
 
-    @discardableResult public func alignLeftWithCenterX(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignLeftWithCenterX(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let leftToCenterConstraint = NSLayoutConstraint(
             item: self,
@@ -228,7 +228,7 @@ public extension UIView {
         return leftToCenterConstraint
     }
 
-    @discardableResult public func alignLeft(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignLeft(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let leftConstraint = NSLayoutConstraint(
             item: self,
@@ -243,7 +243,7 @@ public extension UIView {
         return leftConstraint
     }
 
-    @discardableResult public func alignLeftWithRight(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignLeftWithRight(of item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let leftToRightConstraint = NSLayoutConstraint(
             item: self,
@@ -260,7 +260,7 @@ public extension UIView {
 
     // MARK: Align Center
 
-    @discardableResult public func alignCenterX(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignCenterX(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let centerXConstraint = NSLayoutConstraint(
             item: self,
@@ -275,7 +275,7 @@ public extension UIView {
         return centerXConstraint
     }
 
-    @discardableResult public func alignCenterY(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
+    @discardableResult func alignCenterY(with item: Any, constant: CGFloat = 0) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let centerYConstraint = NSLayoutConstraint(
             item: self,

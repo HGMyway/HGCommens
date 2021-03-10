@@ -8,7 +8,7 @@
 import Foundation
 
 public extension Dictionary {
-    public static func + (lhs: Dictionary, rhs: Dictionary) -> Dictionary {
+    static func + (lhs: Dictionary, rhs: Dictionary) -> Dictionary {
         var returnValue = lhs
         rhs.forEach({ returnValue[$0.key] = $0.value })
         return returnValue

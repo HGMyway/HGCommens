@@ -23,7 +23,7 @@ public extension HGFolder {
         return path
     }
     
-    public var availablePath: String? {
+    var availablePath: String? {
         guard let presentPath = present.availablePath else { return nil }
         let path = presentPath.stringByAppendingPathComponent(name)
         if !FileManager.default.fileExists(atPath: path) {

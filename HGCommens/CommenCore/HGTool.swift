@@ -7,9 +7,12 @@
 //
 
 import Foundation
+
 public typealias HGGCDTask = (_ cancel: Bool) -> ()
 
 open class HGTool {
+    
+    
     @discardableResult
     public static func gcdDelay(_ time: TimeInterval, task: @escaping () -> ()) -> HGGCDTask?{
         
@@ -23,13 +26,12 @@ open class HGTool {
         
         let delayedClosure: HGGCDTask = {
             cancel in
-            if let closure = closure {
-                if !cancel {
-                    DispatchQueue.main.async(execute: closure)
-                }
+            if cancel {
+                closure = nil
+                result = nil
+            } else if let closure = closure {
+                DispatchQueue.main.async(execute: closure)
             }
-            closure = nil
-            result = nil
         }
         
         result = delayedClosure
