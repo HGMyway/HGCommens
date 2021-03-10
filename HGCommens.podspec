@@ -7,12 +7,12 @@
 #
 # git tag '0.1.0'
 # git push --tags
-# pod lib lint HGPhotos.podspec --allow-warnings
-# pod repo push HGPhotos HGPhotos.podspec
+# pod lib lint HGCommens.podspec --allow-warnings
+# pod repo push HGCommens HGCommens.podspec
 
 Pod::Spec.new do |s|
   s.name             = 'HGCommens'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = '一些工具'
 
 # This description is used to generate tags and improve search results.
@@ -37,5 +37,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
    # s.frameworks = 'Photos'
-   s.dependency 'SnapKit'
+   s.dependency 'SnapKit', '~> 5.0.1'
 end
